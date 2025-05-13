@@ -19,7 +19,7 @@
     <section class="food-menu">
         <div class="container">
             <h2 class="text-center">Food Menu</h2>
-
+            <div class="food-menu-grid">
             <?php
                 //create sql query to get all food from database
                 $sql = "SELECT * FROM tbl_food WHERE active='Yes' ";
@@ -51,7 +51,7 @@
                                         }else{
                                             //image available
                                             ?>
-                                                <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
+                                                <img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" alt="<?php echo htmlspecialchars($title); ?>" class="img-responsive img-curve">
                                             <?php
                                         }
                                     ?>
@@ -59,24 +59,24 @@
 
                                 <div class="food-menu-desc">
                                     <h4><?php echo $title; ?></h4>
-                                    <p class="food-price"><?php echo $price; ?></p>
+                                    <p class="food-price">₹<?php echo number_format($price,2); ?></p>
                                     <p class="food-detail">
                                         <?php echo $description; ?>
                                     </p>    
                                     <br>
-                                    <a href="<?php echo SITEURL; ?>order.php" class="btn btn-primary">Order Now</a>
+                                    <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id; ?>" class="btn btn-primary">Order Now</a>
                                 </div>
                             </div>
                         <?php
                     }
                 }else{  
                     //food not available
-                    echo "<div class='error'>Food not available</div>";
+                    echo "<div class='empty-state'><img src='images/empty-food.svg' alt='No food' style='width:120px;display:block;margin:2rem auto;'><p class='text-center' style='color:#888;font-size:1.2rem;'>No food available. Please check back later!</p></div>";
                 }   
             
             
             ?>
-
+            </div>
 
             <div class="clearfix"></div>
 

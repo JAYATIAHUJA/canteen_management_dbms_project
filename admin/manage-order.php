@@ -2,7 +2,7 @@
 
 <div class="main-content">
 <div class="wrapper">
-<h1>MANAGE ADMIN</h1>
+<h1>Manage Order</h1>
 
             <br />
 
@@ -18,7 +18,9 @@
 
             <br />
             <br />
-            <table id="tbl-admin" class="tbl-full">
+            <div class="order-table-container">
+            <table id="tbl-admin" class="tbl-full modern-order-table">
+                <thead>
                 <tr>
                     <th>S.no.</th>
                     <th>Food</th>
@@ -33,7 +35,8 @@
                     <th>Customer Address</th>
                     <th>Actions</th>
                 </tr>
-
+                </thead>
+                <tbody>
                 <?php
                 //get all orders from database
                 $sql = "SELECT * FROM tbl_order ORDER BY id DESC";
@@ -65,22 +68,22 @@
                             <tr>
                                 <td><?php echo $sn++; ?>.</td>
                                 <td><?php echo $food; ?></td>
-                                <td><?php echo $price; ?></td>
+                                <td>₹<?php echo number_format($price,2); ?></td>
                                 <td><?php echo $qty; ?></td>
-                                <td><?php echo $total; ?></td>
+                                <td>₹<?php echo number_format($total,2); ?></td>
                                 <td><?php echo $order_date; ?></td>
 
                                 <td>
                                     <?php
                                     //check if status is ordered
                                     if($status=="Ordered"){
-                                        echo "<label style='color:orange;'>$status</label>";
+                                        echo "<span class='badge badge-ordered'>$status</span>";
                                     }elseif($status=="On Delivery"){
-                                        echo "<label style='color:blue;'>$status</label>";
+                                        echo "<span class='badge badge-delivery'>$status</span>";
                                     }elseif($status=="Delivered"){
-                                        echo "<label style='color:green;'>$status</label>";
+                                        echo "<span class='badge badge-delivered'>$status</span>";
                                     }elseif($status=="Cancelled"){
-                                        echo "<label style='color:red;'>$status</label>";
+                                        echo "<span class='badge badge-cancelled'>$status</span>";
                                     }
                                         
                                      ?>
@@ -91,7 +94,7 @@
                                 <td><?php echo $customer_email; ?></td>
                                 <td><?php echo $customer_address; ?></td>
                                 <td>
-                                   <a href="<?php echo SITEURL; ?>admin/update-order.php?id=<?php echo $id; ?>" class="btn-secondary">Update Order</a>
+                                   <a href="<?php echo SITEURL; ?>admin/update-order.php?id=<?php echo $id; ?>" class="btn-update-order">Update Order</a>
 
 
                                     
@@ -109,6 +112,7 @@
             
 
             </table>
+            </div>
             
          
             <div class="clearfix"></div>

@@ -11,6 +11,8 @@
 
     <!-- Link our CSS file -->
     <link rel="stylesheet" href="<?php echo SITEURL; ?>css/style.css">
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 
 <body>
@@ -19,7 +21,7 @@
         <div class="container">
             <div class="logo">
                 <a href="<?php echo SITEURL; ?>">
-                    <img src="<?php echo SITEURL; ?>images/logo.png" alt="Canteen Logo" class="img-responsive">
+                    <img src="<?php echo SITEURL; ?>images/bitebox-logo.png" alt="BiteBox Logo" class="img-responsive">
                 </a>
             </div>
 
@@ -34,23 +36,12 @@
                     <li>
                         <a href="<?php echo SITEURL; ?>foods.php">Foods</a>
                     </li>
-                    <?php
-                    if(isset($_SESSION['user_id'])) {
-                        ?>
+
                         <li>
-                            <a href="<?php echo SITEURL; ?>orders.php">My Orders</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo SITEURL; ?>logout.php">Logout</a>
+                            <a href="<?php echo SITEURL; ?>/admin/login.php">Admin Login</a>
                         </li>
                         <?php
-                    } else {
-                        ?>
-                        <li>
-                            <a href="<?php echo SITEURL; ?>login.php">Login</a>
-                        </li>
-                        <?php
-                    }
+                
                     ?>
                 </ul>
             </div>
@@ -59,6 +50,13 @@
         </div>
     </nav>
     <!-- Navbar Section Ends Here -->
+
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    gsap.from('.logo', {y: -60, opacity: 0, duration: 1, ease: 'power2.out'});
+    gsap.from('.menu ul li', {y: -40, opacity: 0, duration: 0.7, stagger: 0.1, delay: 0.3, ease: 'power2.out'});
+  });
+</script>
 
 
     

@@ -1,18 +1,35 @@
 <?php include('partials-front/menu.php'); ?>
+<?php
+if(isset($_SESSION['logout'])){
+    echo $_SESSION['logout'];
+    unset($_SESSION['logout']);
+}
+?>
 
 <!-- Hero Section with Search -->
-<section class="food-search text-center">
-    <div class="container">
-        <h2>Discover Delicious Food</h2>
-        <p class="text-white" style="margin-bottom: 2rem;">Order your favorite meals from our canteen</p>
-        
-        <form action="<?php echo SITEURL; ?>food-search.php" method="POST" class="search-form">
-            <input type="search" name="search" placeholder="Search for Food.." required>
-            <button type="submit" name="submit" class="btn btn-primary">
-                <i class="fas fa-search"></i> Search
-            </button>
-        </form>
+<section class="hero-modern">
+  <div class="hero-container">
+    <div class="hero-left">
+      <h1 class="hero-title">Order fresh, eat bold.</h1>
+      <p class="hero-subtitle">Delicious food delivered fast. Discover your next favorite meal!</p>
+      <form action="<?php echo SITEURL; ?>food-search.php" method="POST" class="search-form">
+        <input type="search" name="search" placeholder="Search for food..." required>
+        <button type="submit" name="submit" class="btn btn-primary">
+          <i class="fas fa-search"></i> Search
+        </button>
+      </form>
+      <div class="hero-ctas">
+        <a href="<?php echo SITEURL; ?>order.php" class="btn btn-primary hero-order-btn">Order Now</a>
+        <a href="<?php echo SITEURL; ?>foods.php" class="btn btn-outline hero-browse-btn">Browse Menu</a>
+      </div>
     </div>
+    <div class="hero-right">
+      <div class="hero-img-wrapper">
+        <img src="<?php echo SITEURL; ?>images/hero-food.jpg" alt="Steaming food" class="hero-img">
+        <div class="hero-img-overlay"></div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <?php

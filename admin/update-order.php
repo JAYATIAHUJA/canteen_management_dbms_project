@@ -1,9 +1,45 @@
-<?php include('partials/menu.php'); ?>
+<?php 
+include('partials/menu.php');
+// Handle form submission BEFORE any HTML output
+if(isset($_POST['submit'])){
+    $id = $_POST['id'];
+    $price = $_POST['price'];
+    $qty = $_POST['qty'];
+    $total = $price * $qty;
+    $status = $_POST['status'];
+    $customer_name = $_POST['customer_name'];
+    $customer_contact = $_POST['customer_contact'];
+    $customer_email = $_POST['customer_email'];
+    $customer_address = $_POST['customer_address'];
+
+    $sql2 = "UPDATE tbl_order SET 
+        price = $price,
+        quantity = $qty,
+        total = $total,
+        status = '$status',
+        customer_name = '$customer_name',
+        customer_contact = '$customer_contact',
+        customer_email = '$customer_email',
+        customer_address = '$customer_address'
+        WHERE id = $id";
+
+    $res2 = mysqli_query($conn, $sql2);
+
+    if($res2==true){
+        $_SESSION['update'] = "<div class='success'>Order updated successfully.</div>";
+        header('location:'.SITEURL.'admin/manage-order.php');
+        exit();
+    }else{
+        $_SESSION['update'] = "<div class='error'>Failed to update order.</div>";
+        header('location:'.SITEURL.'admin/manage-order.php');
+        exit();
+    }
+}
+?>
 <div class="main-content">
     <div class="wrapper">
         <h1>Update Order</h1>
         <br><br>
-        
         <?php
             //check if id is set
             if(isset($_GET['id'])){
@@ -34,15 +70,15 @@
                     }else{
                         //order not available
                         header('location:'.SITEURL.'admin/manage-order.php');
+                        exit();
                     }
                 }
             }else{
                 //id not set
                 header('location:'.SITEURL.'admin/manage-order.php');
+                exit();
             }
         ?>
-
-
         <form action="" method="POST">
             <table class="tbl-30">
                 <tr>
@@ -53,7 +89,6 @@
                     <td>Price</td>
                     <td><b>$<?php echo $price; ?></b></td>
                 </tr>   
-                    
                 </tr>
                 <tr>
                     <td>Qty</td>
@@ -61,7 +96,6 @@
                         <input type="number" name="qty" value="<?php echo $qty; ?>" required>
                     </td>
                 </tr>
-              
                 <tr>
                     <td>Status</td>
                     <td>
@@ -104,57 +138,8 @@
                         <input type="submit" name="submit" value="Update Order" class="btn-secondary">
                     </td>
                 </tr>
-
             </table>
-
         </form>
-
-        <?php
-            //check if submit button is clicked
-            if(isset($_POST['submit'])){
-                //get the values from the form
-                $id = $_POST['id'];
-                $price = $_POST['price'];
-                $qty = $_POST['qty'];
-
-                // Calculate total instead of getting from POST
-                $total = $price * $qty;
-                
-                $status = $_POST['status'];
-                $customer_name = $_POST['customer_name'];
-                $customer_contact = $_POST['customer_contact'];
-                $customer_email = $_POST['customer_email'];
-                $customer_address = $_POST['customer_address'];
-
-                //create sql query to update order
-                $sql2 = "UPDATE tbl_order SET 
-                    price = $price,
-                    quantity = $qty,
-                    total = $total,
-                    status = '$status',
-                    customer_name = '$customer_name',
-                    customer_contact = '$customer_contact',
-                    customer_email = '$customer_email',
-                    customer_address = '$customer_address'
-                    WHERE id = $id";
-
-                //execute the query
-                $res2 = mysqli_query($conn, $sql2);
-
-                //check if query executed successfully
-                if($res2==true){
-                    //query executed successfully
-                    $_SESSION['update'] = "<div class='success'>Order updated successfully.</div>";
-                    header('location:'.SITEURL.'admin/manage-order.php');
-                }else{
-                    //query failed
-                    $_SESSION['update'] = "<div class='error'>Failed to update order.</div>";
-                    header('location:'.SITEURL.'admin/manage-order.php');
-                }
-            }
-
-        ?>
     </div>
 </div>
-
 <?php include('partials/footer.php'); ?>

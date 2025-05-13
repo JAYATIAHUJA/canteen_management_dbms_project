@@ -2,10 +2,15 @@
 
 //include constants.php for SITEURL
 include('../config/constants.php');
-//destroy the session
+//start session if not already started
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+//set logout message
+$_SESSION['logout'] = "<div class='success' style='text-align:center;margin:1.5rem auto;max-width:400px;'>You have been logged out successfully.</div>";
+session_write_close(); // Save session data before redirect
 
-session_destroy(); //unsetting $_SESSION['user'] will also destroy the session
-
-//redirect to login page with message
-header('location:'.SITEURL.'admin/login.php');
+//redirect to main site index page
+header('location:'.SITEURL.'index.php');
+exit();
 ?>
