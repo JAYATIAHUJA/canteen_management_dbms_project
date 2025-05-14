@@ -9,8 +9,6 @@ if(isset($_POST['submit'])){
     $status = $_POST['status'];
     $customer_name = $_POST['customer_name'];
     $customer_contact = $_POST['customer_contact'];
-    $customer_email = $_POST['customer_email'];
-    $customer_address = $_POST['customer_address'];
 
     $sql2 = "UPDATE tbl_order SET 
         price = $price,
@@ -18,9 +16,7 @@ if(isset($_POST['submit'])){
         total = $total,
         status = '$status',
         customer_name = '$customer_name',
-        customer_contact = '$customer_contact',
-        customer_email = '$customer_email',
-        customer_address = '$customer_address'
+        customer_contact = '$customer_contact'
         WHERE id = $id";
 
     $res2 = mysqli_query($conn, $sql2);
@@ -65,8 +61,6 @@ if(isset($_POST['submit'])){
                         $status = $row['status'];
                         $customer_name = $row['customer_name'];
                         $customer_contact = $row['customer_contact'];
-                        $customer_email = $row['customer_email'];
-                        $customer_address = $row['customer_address'];
                     }else{
                         //order not available
                         header('location:'.SITEURL.'admin/manage-order.php');
@@ -101,7 +95,6 @@ if(isset($_POST['submit'])){
                     <td>
                         <select name="status">
                             <option <?php if($status=="Ordered"){echo "selected";} ?> value="Ordered">Ordered</option>
-                            <option <?php if($status=="On Delivery"){echo "selected";} ?> value="On Delivery">On Delivery</option>
                             <option <?php if($status=="Delivered"){echo "selected";} ?> value="Delivered">Delivered</option>
                             <option <?php if($status=="Cancelled"){echo "selected";} ?> value="Cancelled">Cancelled</option>
                         </select>
@@ -117,18 +110,6 @@ if(isset($_POST['submit'])){
                     <td>Customer Contact</td>
                     <td>
                         <input type="text" name="customer_contact" value="<?php echo $customer_contact; ?>" required>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Customer Email</td>
-                    <td>
-                        <input type="email" name="customer_email" value="<?php echo $customer_email; ?>" required>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Customer Address</td>
-                    <td>
-                        <textarea name="customer_address" cols="30" rows="5" required><?php echo $customer_address; ?></textarea>
                     </td>
                 </tr>
                 <tr>

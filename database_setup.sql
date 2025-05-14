@@ -43,10 +43,32 @@ CREATE TABLE IF NOT EXISTS tbl_order (
     status VARCHAR(50) NOT NULL,
     customer_name VARCHAR(150) NOT NULL,
     customer_contact VARCHAR(20) NOT NULL,
-    customer_email VARCHAR(150) NOT NULL,
-    customer_address TEXT NOT NULL
+    customer_email VARCHAR(150) NOT NULL
 );
 
 -- Insert default admin user (username: admin, password: admin123)
 INSERT INTO tbl_admin (full_name, username, password) 
-VALUES ('Administrator', 'admin', MD5('admin123')); 
+VALUES ('Administrator', 'admin', MD5('admin123'));
+
+-- Trigger: Prevent deleting a category with assigned foods
+DELIMITER $$
+CREATE TRIGGER before_category_delete
+BEFORE DELETE ON tbl_category
+FOR EACH ROW
+BEGIN
+    IF (SELECT COUNT(*) FROM tbl_food WHERE category_id = OLD.id) > 0 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'Cannot delete category with assigned foods.';
+    END IF;
+END $$
+DELIMITER ;
+
+-- Procedure: Get daily sales summary
+DELIMITER $$
+CREATE PROCEDURE get_daily_sales(IN sales_date DATE)
+BEGIN
+    SELECT COUNT(*) AS total_orders, SUM(total) AS total_revenue
+    FROM tbl_order
+    WHERE DATE(order_date) = sales_date;
+END $$
+DELIMITER ;
