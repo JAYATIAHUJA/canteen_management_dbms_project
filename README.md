@@ -119,6 +119,4 @@ canteen_management/
 
 This project is for educational purposes.
 
----
 
-Feel free to further customize this README with your project's specific details, screenshots, or deployment instructions!
