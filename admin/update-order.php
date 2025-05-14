@@ -81,7 +81,7 @@ if(isset($_POST['submit'])){
                 </tr>
                 <tr>
                     <td>Price</td>
-                    <td><b>$<?php echo $price; ?></b></td>
+                    <td><b>Rs.<?php echo $price; ?></b></td>
                 </tr>   
                 </tr>
                 <tr>

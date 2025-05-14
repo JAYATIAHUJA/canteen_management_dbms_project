@@ -64,9 +64,9 @@
                             <tr>
                                 <td><?php echo $sn++; ?>.</td>
                                 <td><?php echo $food; ?></td>
-                                <td>₹<?php echo number_format($price,2); ?></td>
+                                <td>Rs.<?php echo number_format($price,2); ?></td>
                                 <td><?php echo $qty; ?></td>
-                                <td>₹<?php echo number_format($total,2); ?></td>
+                                <td>Rs.<?php echo number_format($total,2); ?></td>
                                 <td><?php echo $order_date; ?></td>
 
                                 <td>

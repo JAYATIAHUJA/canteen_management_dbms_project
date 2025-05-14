@@ -139,14 +139,15 @@
                     // B. Remove the current image if available
                     if ($current_image != "") {
                         $remove_path = "../images/category/" . $current_image;
-                        $remove = unlink($remove_path);
-
-                        // Check whether the image is removed or not
-                        if ($remove == false) {
-                            // Failed to remove current image
-                            $_SESSION['failed-remove'] = "<div class='error'>Failed to remove current image.</div>";
-                            header('location:' . SITEURL . 'admin/manage-category.php');
-                            die();
+                        if (file_exists($remove_path)) {
+                            $remove = unlink($remove_path);
+                            // Check whether the image is removed or not
+                            if ($remove == false) {
+                                // Failed to remove current image
+                                $_SESSION['failed-remove'] = "<div class='error'>Failed to remove current image.</div>";
+                                header('location:' . SITEURL . 'admin/manage-category.php');
+                                die();
+                            }
                         }
                     }
                 } else {

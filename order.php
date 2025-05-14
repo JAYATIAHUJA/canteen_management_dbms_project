@@ -67,7 +67,7 @@
                     <div class="food-menu-desc">
                         <h3><?php echo $title;?></h3>
                         <input type="hidden" name="food" value="<?php echo $title; ?>">
-                        <p class="food-price">₹<?php echo number_format($price,2); ?></p>
+                        <p class="food-price">Rs.<?php echo number_format($price,2); ?></p>
                         <input type="hidden" name="price" value="<?php echo $price; ?>" class="input-responsive" required>
                         <div class="order-label">Quantity</div>
                         <input type="number" name="qty" class="input-responsive" value="1" min="1" required style="max-width:120px;">
@@ -77,7 +77,7 @@
                     <legend style="font-size:1.2rem;font-weight:600;margin-bottom:1rem;">Delivery Details</legend>
                     <div class="form-group">
                         <div class="order-label">Full Name</div>
-                        <input type="text" name="full-name" placeholder="E.g. Vijay Thapa" class="input-responsive" required>
+                        <input type="text" name="full-name" placeholder="E.g. Jayati Ahuja" class="input-responsive" required>
                     </div>
                     <div class="form-group">
                         <div class="order-label">Phone Number</div>

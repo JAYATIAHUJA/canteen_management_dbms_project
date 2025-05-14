@@ -59,7 +59,7 @@
 
                                 <div class="food-menu-desc">
                                     <h4><?php echo $title; ?></h4>
-                                    <p class="food-price">₹<?php echo number_format($price,2); ?></p>
+                                    <p class="food-price">Rs.<?php echo number_format($price,2); ?></p>
                                     <p class="food-detail">
                                         <?php echo $description; ?>
                                     </p>    

@@ -1,4 +1,6 @@
-<?php include('partials/menu.php'); ?>
+<?php
+ob_start();
+include('partials/menu.php'); ?>
 
 <div class="main-content">
     <div class="wrapper">
@@ -75,8 +77,7 @@
                                 <?php
                             }
                          ?>
-                            <option value="1">Food</option>
-                            <option value="2">Snacks</option>
+                           
                         </select>
                     </td>
                 </tr>
@@ -203,3 +204,4 @@
 
 
 <?php include('partials/footer.php'); ?>
+<?php ob_end_flush(); ?>

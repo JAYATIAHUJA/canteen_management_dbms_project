@@ -39,7 +39,7 @@
             <div class="food-menu-grid">
             <?php
                 //sql query to get food based on category id
-                $sql2 = "SELECT * FROM tbl_food WHERE category_id=$category_id";
+                $sql2 = "SELECT * FROM tbl_food WHERE category_id=$category_id AND active='Yes'";
                 //execute the query
                 $res2 = mysqli_query($conn, $sql2);
                 //count rows
@@ -73,7 +73,7 @@
 
                                 <div class="food-menu-desc">
                                     <h4><?php echo $title; ?></h4>
-                                    <p class="food-price">₹<?php echo number_format($price,2); ?></p>
+                                    <p class="food-price">Rs.<?php echo number_format($price,2); ?></p>
                                     <p class="food-detail">
                                         <?php echo $description; ?>
                                     </p>

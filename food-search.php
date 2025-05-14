@@ -23,7 +23,7 @@ include('partials-front/menu.php');
             <h2 class="text-center">Food Menu</h2>
             <div class="food-menu-grid">
             <?php
-                $sql = "SELECT * FROM tbl_food WHERE title LIKE '%$search%' OR description LIKE '%$search%'";
+                $sql = "SELECT * FROM tbl_food WHERE (title LIKE '%$search%' OR description LIKE '%$search%') AND active='Yes'";
                 $res = mysqli_query($conn, $sql);
                 $count = mysqli_num_rows($res);
                 if($count>0){
@@ -48,7 +48,7 @@ include('partials-front/menu.php');
                                 </div>
                                 <div class="food-menu-desc">
                                     <h4><?php echo $title; ?></h4>
-                                    <p class="food-price">₹<?php echo number_format($price,2); ?></p>
+                                    <p class="food-price">Rs.<?php echo number_format($price,2); ?></p>
                                     <p class="food-detail">
                                         <?php echo $description; ?>
                                     </p>
