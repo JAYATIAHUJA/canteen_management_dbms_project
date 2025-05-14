@@ -10,9 +10,9 @@ if(isset($_SESSION['logout'])){
 <section class="hero-modern">
   <div class="hero-container">
     <div class="hero-left">
-      <h1 class="hero-title">Order fresh, eat bold.</h1>
-      <p class="hero-subtitle">Delicious food delivered fast. Discover your next favorite meal!</p>
-      <p class="hero-tagline" style="font-size:1.15rem;color:#ffb300;font-weight:600;margin-bottom:1.2rem;">No More Waiting in Line – Get Your Favorite Meal Online.</p>
+      <h1 class="hero-title">Craving Solved, Freshly Served.</h1>
+      <p class="hero-subtitle">Fast, Flavorful, and at Your Fingertips.</p>
+      <p class="hero-tagline" style="font-size:1.15rem;color:#ffb300;font-weight:600;margin-bottom:1.2rem;">No More Bell Rush – Order Your Canteen Favorites Online</p>
       <form action="<?php echo SITEURL; ?>food-search.php" method="POST" class="search-form">
         <input type="search" name="search" placeholder="Search for food..." required>
         <button type="submit" name="submit" class="btn btn-primary">
