@@ -4,33 +4,78 @@ A modern web-based Canteen Management System built with PHP and MySQL, featuring
 
 ![Canteen Management System](images/screenshots/homepage.png)
 
-##  Table of Contents
+## 📋 Table of Contents
+- [Features](#-features)
+- [Screenshots](#-screenshots)
+- [Project Structure](#-project-structure)
+- [Database Setup](#-database-setup)
+- [Advanced Database Features](#-advanced-database-features)
+- [Installation & Setup](#-installation--setup)
+- [Image Management](#-image-management)
+- [Usage Guide](#-usage-guide)
+- [Customization](#-customization)
+- [Contributing](#-contributing)
+- [License](#-license)
 
-- [Features](#features)
-- [Project Structure](#project-structure)
-- [Database Setup](#database-setup)
-- [Advanced Database Features](#advanced-database-features)
-- [Installation & Setup](#installation-&-setup)
-- [Usage](#usage)
-- [Customization](#customization)
-- [License](#license)
+## ✨ Features
 
-## Features
+### 👤 User Side
+- **Browse Menu:** View food categories and featured dishes
+- **Search Foods:** Quick search functionality with filters
+- **Order Online:** Easy-to-use order placement system
+- **Responsive UI:** Mobile-friendly interface
+- **Order Tracking:** Real-time order status updates
 
-### User Side
-- **Browse Menu:** View food categories and featured dishes.
-- **Search Foods:** Quickly find foods using the search bar.
-- **Order Online:** Place orders for available foods.
-- **Responsive UI:** Clean and modern interface for easy navigation.
+### 👨‍💼 Admin Side
+- **Secure Authentication:** Protected admin access
+- **Dashboard Analytics:** Sales, orders, and revenue insights
+- **Category Management:** Full CRUD operations for food categories
+- **Food Management:** Comprehensive food item management
+- **Order Management:** Track and update customer orders
+- **Admin Management:** User access control
+- **Password Security:** Secure password management
 
-### Admin Side
-- **Admin Authentication:** Secure login/logout for admins.
-- **Dashboard:** Overview of categories, foods, orders, and revenue.
-- **Category Management:** Add, update, delete, and manage food categories.
-- **Food Management:** Add, update, delete, and manage food items.
-- **Order Management:** View, update, and track customer orders.
-- **Admin Management:** Add, update, and delete admin users.
-- **Password Management:** Update admin passwords securely.
+## 📸 Screenshots
+
+### User Interface
+
+#### Homepage
+![Homepage](images/screenshots/homepage.png)
+*The main landing page featuring featured foods, categories, and quick access to menu*
+
+#### Category/Explore Food Page
+![Category Page](images/screenshots/categories.png)
+*Explore food items by categories with filtering options and detailed food information*
+
+#### Menu Page
+![Menu Page](images/screenshots/menu.png)
+*Browse through all available food items with categories and search functionality*
+
+#### Order Page
+![Order Page](images/screenshots/order.png)
+*User-friendly order placement interface with cart management*
+
+### Admin Dashboard
+
+#### Dashboard Overview
+![Admin Dashboard](images/screenshots/admin-dashboard.png)
+*Admin dashboard with key metrics, recent orders, and quick actions*
+
+#### Food Management
+![Food Management](images/screenshots/food-management.png)
+*Comprehensive food item management interface with CRUD operations*
+
+#### Category Management
+![Category Management](images/screenshots/category-management.png)
+*Category management system for organizing food items*
+
+#### Order Management
+![Order Management](images/screenshots/order-management.png)
+*Order tracking and management system for administrators*
+
+#### Admin Management
+![Admin Management](images/screenshots/admin-management.png)
+*Admin user management interface for creating, updating, and deleting administrator accounts. Features include adding new admins, changing passwords, updating usernames, and managing admin access rights.*
 
 ## Project Structure
 
@@ -116,60 +161,88 @@ canteen_management/
    - User Side: `http://localhost/canteen_management/index.php`
    - Admin Side: `http://localhost/canteen_management/admin/login.php`
 
-## Usage
+## 🖼️ Image Management
 
-- **User Side:** Browse menu, search for foods, and place orders.
-- **Admin Side:** Log in as admin to manage categories, foods, orders, and other admins.
+### Supported Image Types
+- JPG/JPEG
+- PNG
+- WebP (recommended for better performance)
+
+### Image Guidelines
+1. **Food Images:**
+   - Recommended size: 800x600 pixels
+   - Maximum file size: 2MB
+   - Format: WebP (preferred) or JPG
+   - Location: `images/food/`
+
+2. **Category Images:**
+   - Recommended size: 400x300 pixels
+   - Maximum file size: 1MB
+   - Format: WebP (preferred) or PNG
+   - Location: `images/category/`
+
+3. **Banner Images:**
+   - Recommended size: 1920x600 pixels
+   - Maximum file size: 3MB
+   - Format: WebP (preferred) or JPG
+   - Location: `images/banner/`
+
+### Adding Images
+1. Place your images in the appropriate directory
+2. Use descriptive filenames (e.g., `chicken-burger.webp`)
+3. Optimize images before uploading for better performance
+4. Ensure proper permissions (readable by web server)
+
+### Image Optimization Tips
+- Use WebP format for better compression
+- Compress images using tools like TinyPNG
+- Maintain aspect ratios
+- Use appropriate image sizes for different devices
+
+## Usage Guide
+
+### User Side
+- Browse menu and categories
+- Search for specific foods
+- Place orders with cart management
+- Track order status
+
+### Admin Side
+- Log in to admin dashboard
+- Manage food categories and items
+- Process and track orders
+- Manage admin accounts
+- View sales analytics
 
 ## Customization
 
-- **Images:** Add your food and category images in the `images/` directory.
-- **Styles:** Modify `css/style.css` and `css/admin.css` for custom styles.
+- **Images:** Add your food and category images in the `images/` directory
+- **Styles:** Modify `css/style.css` and `css/admin.css` for custom styles
+- **Configuration:** Update `config/constants.php` for database and other settings
 
-## License
+## 🤝 Contributing
 
-This project is for educational purposes.
+We welcome contributions! Please follow these steps:
 
-## 📸 Screenshots
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
 
-### User Interface
+### Development Guidelines
+- Follow PSR-12 coding standards
+- Write meaningful commit messages
+- Update documentation for new features
+- Test thoroughly before submitting PRs
 
-#### Homepage
-![Homepage](images/screenshots/homepage.png)
-*The main landing page featuring featured foods, categories, and quick access to menu*
+## 📄 License
 
-#### Category/Explore Food Page
-![Category Page](images/screenshots/categories.png)
-*Explore food items by categories with filtering options and detailed food information*
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-#### Menu Page
-![Menu Page](images/screenshots/menu.png)
-*Browse through all available food items with categories and search functionality*
+---
 
-#### Order Page
-![Order Page](images/screenshots/order.png)
-*User-friendly order placement interface with cart management*
+Made with ❤️ by [Your Name/Organization]
 
-### Admin Dashboard
+*For support or questions, please open an issue in the repository.*
 
-#### Dashboard Overview
-![Admin Management](images/screenshots/admin-management.png)
-*Admin user management interface for creating, updating, and deleting administrator accounts. Features include adding new admins, changing passwords, updating usernames, and managing admin access rights.*
-
-#### Dashboard Overview
-![Admin Dashboard](images/screenshots/admin-dashboard.png)
-*Admin dashboard with key metrics, recent orders, and quick actions*
-
-#### Food Management
-![Food Management](images/screenshots/food-management.png)
-*Comprehensive food item management interface with CRUD operations*
-
-#### Category Management
-![Category Management](images/screenshots/category-management.png)
-*Category management system for organizing food items*
-
-#### Order Management
-![Order Management](images/screenshots/order-management.png)
-*Order tracking and management system for administrators*
-
-Feel free to further customize this README with your project's specific details, screenshots, or deployment instructions!
