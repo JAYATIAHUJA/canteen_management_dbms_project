@@ -139,7 +139,7 @@ This project is for educational purposes.
 *The main landing page featuring featured foods, categories, and quick access to menu*
 
 #### Category/Explore Food Page
-![Category Page](images/screenshots/category.png)
+![Category Page](images/screenshots/categories.png)
 *Explore food items by categories with filtering options and detailed food information*
 
 #### Menu Page
