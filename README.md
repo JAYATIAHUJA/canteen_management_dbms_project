@@ -1,8 +1,19 @@
-# Canteen Management DBMS Project
+# 🍽️ Canteen Management System
 
-A web-based Canteen Management System for efficiently handling food orders, menu management, and administrative tasks. Built with PHP and MySQL, this project provides both a user-facing food ordering interface and an admin dashboard for managing categories, foods, and orders.
+A modern web-based Canteen Management System built with PHP and MySQL, featuring a responsive user interface for food ordering and a comprehensive admin dashboard for efficient management.
 
----
+![Canteen Management System](images/screenshots/homepage.png)
+
+##  Table of Contents
+
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Database Setup](#database-setup)
+- [Advanced Database Features](#advanced-database-features)
+- [Installation & Setup](#installation-&-setup)
+- [Usage](#usage)
+- [Customization](#customization)
+- [License](#license)
 
 ## Features
 
@@ -20,8 +31,6 @@ A web-based Canteen Management System for efficiently handling food orders, menu
 - **Order Management:** View, update, and track customer orders.
 - **Admin Management:** Add, update, and delete admin users.
 - **Password Management:** Update admin passwords securely.
-
----
 
 ## Project Structure
 
@@ -60,15 +69,13 @@ canteen_management/
 └── README.md             # Project documentation
 ```
 
----
-
 ## Database Setup
 
 1. **Create the Database:**
    - Import the `database_setup.sql` file into your MySQL server.
    - This will create the database, tables, and a default admin user:
      - **Username:** `admin`
-     - **Password:** `admin123`
+     - **Password:** `admin12345`
 
 2. **Database Tables:**
    - `tbl_admin`: Admin users
@@ -76,7 +83,17 @@ canteen_management/
    - `tbl_food`: Food items
    - `tbl_order`: Customer orders
 
----
+## Advanced Database Features
+
+### Triggers
+- **before_category_delete:** Prevents deletion of a category if it still has foods assigned. If you try to delete such a category, the operation is blocked and a clear error message is shown.
+- **after_order_update:** Logs every change in order status to the `tbl_order_status_log` table, recording the old and new status and the time of change.
+
+### Procedures
+- **get_daily_sales:** Returns the total number of orders and total revenue for a given date. Usage example:
+  ```sql
+  CALL get_daily_sales('2024-05-20');
+  ```
 
 ## Installation & Setup
 
@@ -99,26 +116,60 @@ canteen_management/
    - User Side: `http://localhost/canteen_management/index.php`
    - Admin Side: `http://localhost/canteen_management/admin/login.php`
 
----
-
 ## Usage
 
 - **User Side:** Browse menu, search for foods, and place orders.
 - **Admin Side:** Log in as admin to manage categories, foods, orders, and other admins.
-
----
 
 ## Customization
 
 - **Images:** Add your food and category images in the `images/` directory.
 - **Styles:** Modify `css/style.css` and `css/admin.css` for custom styles.
 
----
-
 ## License
 
 This project is for educational purposes.
 
----
+## 📸 Screenshots
+
+### User Interface
+
+#### Homepage
+![Homepage](images/screenshots/homepage.png)
+*The main landing page featuring featured foods, categories, and quick access to menu*
+
+#### Category/Explore Food Page
+![Category Page](images/screenshots/category.png)
+*Explore food items by categories with filtering options and detailed food information*
+
+#### Menu Page
+![Menu Page](images/screenshots/menu.png)
+*Browse through all available food items with categories and search functionality*
+
+#### Order Page
+![Order Page](images/screenshots/order.png)
+*User-friendly order placement interface with cart management*
+
+### Admin Dashboard
+
+#### Dashboard Overview
+![Admin Management](images/screenshots/admin-management.png)
+*Admin user management interface for creating, updating, and deleting administrator accounts. Features include adding new admins, changing passwords, updating usernames, and managing admin access rights.*
+
+#### Dashboard Overview
+![Admin Dashboard](images/screenshots/admin-dashboard.png)
+*Admin dashboard with key metrics, recent orders, and quick actions*
+
+#### Food Management
+![Food Management](images/screenshots/food-management.png)
+*Comprehensive food item management interface with CRUD operations*
+
+#### Category Management
+![Category Management](images/screenshots/category-management.png)
+*Category management system for organizing food items*
+
+#### Order Management
+![Order Management](images/screenshots/order-management.png)
+*Order tracking and management system for administrators*
 
 Feel free to further customize this README with your project's specific details, screenshots, or deployment instructions!

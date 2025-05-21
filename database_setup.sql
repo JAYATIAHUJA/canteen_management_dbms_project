@@ -43,12 +43,12 @@ CREATE TABLE IF NOT EXISTS tbl_order (
     status VARCHAR(50) NOT NULL,
     customer_name VARCHAR(150) NOT NULL,
     customer_contact VARCHAR(20) NOT NULL,
-    customer_email VARCHAR(150) NOT NULL
+ 
 );
 
 -- Insert default admin user (username: admin, password: admin123)
 INSERT INTO tbl_admin (full_name, username, password) 
-VALUES ('Administrator', 'admin', MD5('admin123'));
+VALUES ('Administrator', 'admin', MD5('admin12345'));
 
 -- Trigger: Prevent deleting a category with assigned foods
 DELIMITER $$
