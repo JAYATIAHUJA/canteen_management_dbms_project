@@ -1,4 +1,4 @@
-# 🍽️ Canteen Management System
+# 🍽️ BiteBox - A Canteen Order Management System
 
 A modern web-based Canteen Management System built with PHP and MySQL, featuring a responsive user interface for food ordering and a comprehensive admin dashboard for efficient management.
 
